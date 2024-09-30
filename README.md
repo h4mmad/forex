@@ -40,3 +40,4 @@ Todo
 
 - Write unit tests
 - Assign a single user specific cache dir (eg. ~/.cache/forex/), current behaviour: create a cache file in the current dir
+- Remove api key and move to .env
