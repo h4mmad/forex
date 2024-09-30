@@ -1,5 +1,10 @@
 A forex currency CLI tool with caching which allows to type in a source currency and
 multiple target currencies. USD to currency conversion rates are fetched from `currencyapi` API and are cached.
+Source to target currency is then calculated based on the USD to each currency rate.
+
+$$
+converted amount := amount \times \frac{target currency rate w.r.t USD}{source currency rate w.r.t USD}
+$$
 
 Example usage:
 
