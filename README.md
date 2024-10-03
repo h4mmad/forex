@@ -1,6 +1,8 @@
-A forex currency CLI tool with caching which allows to type in a source currency and
+A currency CLI tool with caching which allows to type in a source currency and
 multiple target currencies. USD to currency conversion rates are fetched from `currencyapi` API and are cached.
 Source to target currency is then calculated based on the USD to each currency rate.
+
+Caching in an app that converts currencies while their values keep changing every second is not ideal. The reason for caching functionality is to satisfy the API rate quota in the free tier. The app was intended to be general CLI tool for currency conversion. The cache duration can be set to zero when building the binary and a paid API tier can be used for real time conversion and more professional use.
 
 $$
 converted amount := amount \times \frac{target currency rate w.r.t USD}{source currency rate w.r.t USD}
