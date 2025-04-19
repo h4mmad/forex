@@ -1,4 +1,4 @@
-A currency CLI tool with caching which allows to type in a source currency and
+A currency CLI tool with caching which allows to type a source currency and
 multiple target currencies. USD to currency conversion rates are fetched from `currencyapi` API and are cached.
 Source to target currency is then calculated based on the USD to each currency rate.
 
@@ -37,9 +37,3 @@ go build -ldflags "-X 'main.cacheExpiryDurationInHours=12' -X 'main.version=1.0.
 ```
 
 After building move binary to `/usr/local/bin/`, this will allow you to call it from any directory
-
-Todo
-
-- Write unit tests
-- Assign a single user specific cache dir (eg. ~/.cache/forex/), current behaviour: create a cache file in the current dir
-- Remove api key and move to .env
