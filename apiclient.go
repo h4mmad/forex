@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"io"
+    "os"
 	"log"
 	"net/http"
 	"net/url"
@@ -76,7 +77,7 @@ func createRequestURL() string{
 
     baseURL:="https://api.currencyapi.com/v3/latest"
     apiKey:=os.Getenv("CURRENCY_API_KEY")
-    
+
     params := url.Values{}
     params.Add("apikey", apiKey)
     fullURL := fmt.Sprintf("%s?%s", baseURL, params.Encode())
