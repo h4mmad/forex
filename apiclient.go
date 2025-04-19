@@ -8,6 +8,7 @@ import (
 	"net/http"
 	"net/url"
 	"time"
+    "github.com/joho/godotenv"
 )
 
 // ApiResponse represents the overall structure of the response.
@@ -65,8 +66,17 @@ func makeGETrequest() CurrencyData{
 //   - The base CurrencyCode is always set to "USD", as specified in the function.
 //   - The `fmt.Sprintf` method is used to combine the base URL and the encoded query parameters into the final URL string.
 func createRequestURL() string{
+
+
+    err:= godotenv.Load()
+    if err != nil {
+        log.Fatal("Error loading .env file")
+    }
+
+
     baseURL:="https://api.currencyapi.com/v3/latest"
-    apiKey:="cur_live_jjpfSTEGgby2Cs95zkK2MVXzdBJqHjnMNc3EB9Jn" 
+    apiKey:=os.Getenv("CURRENCY_API_KEY")
+    
     params := url.Values{}
     params.Add("apikey", apiKey)
     fullURL := fmt.Sprintf("%s?%s", baseURL, params.Encode())
